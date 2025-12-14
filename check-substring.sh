@@ -15,7 +15,9 @@ MATCHING_FILES=$(grep -rl --include="*.tf" --include="*.tfvars" "$SEARCH_STRING"
 # Check if any matching files were found
 if [ -z "$MATCHING_FILES" ]; then
   echo "No files found containing the string '$SEARCH_STRING'."
+  exit 1 
 else
   echo "Files containing the string '$SEARCH_STRING':"
   echo "$MATCHING_FILES"
+  exit 0
 fi
