@@ -1,7 +1,7 @@
 - id: check-substring
   name: Check substring in a file
   description: "Checks if a required substring exists in a specific file."
-  entry: sh check-substring.sh
+  entry: ./check-substring.sh
   language: script
   always_run: true
   pass_filenames: false
