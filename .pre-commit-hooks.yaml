@@ -1,7 +1,7 @@
-- id: check-substring
-  name: Check substring in a file
-  description: "Checks if a required substring exists in a specific file."
-  entry: ./check-substring.sh "tags*"
+- id: check-tags
+  name: Check tag in a file
+  description: "Checks if a required tag with the right attribute(Environment, AssetId) exists in a specific file."
+  entry: ./check-tags.sh
   language: script
   always_run: true
   files: \.tfvars$|\.tf$

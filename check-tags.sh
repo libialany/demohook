@@ -31,10 +31,10 @@ find . -type f \( -name "*.tfvars" \) | while read -r file; do
       exit 1
     fi
 
-    # Check if the file contains the AssetId attribute
-    ASSET_ID_VALUE=$(grep -o 'AssetId\s*=\s*"[^"]*"' "$file" | sed 's/AssetId\s*=\s*"\([^"]*\)"/\1/')
+    # Check if the file contains the Project attribute
+    ASSET_ID_VALUE=$(grep -o 'Project\s*=\s*"[^"]*"' "$file" | sed 's/Project\s*=\s*"\([^"]*\)"/\1/')
     if [ -z "$ASSET_ID_VALUE" ]; then
-      echo "Error: 'AssetId' attribute not found or is empty in 'tags' block in file $file"
+      echo "Error: 'Project' attribute not found or is empty in 'tags' block in file $file"
       exit 1
     fi
   fi

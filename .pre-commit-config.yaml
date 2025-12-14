@@ -2,4 +2,4 @@ repos:
   - repo: https://github.com/libialany/demohook
     rev: v1.0.0
     hooks:
-      - id: check-substring
+      - id: check-tags
