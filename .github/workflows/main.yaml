@@ -1,0 +1,34 @@
+name: Run yamlfmt
+
+on:
+  push:
+    branches:
+      - test
+  pull_request:
+    branches:
+      - test
+
+jobs:
+  yamlfmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install wget and tar
+        run: sudo apt-get update && sudo apt-get install -y wget tar
+
+      # Download and extract yamlfmt
+      - name: Download and extract yamlfmt
+        run: |
+          wget https://github.com/google/yamlfmt/releases/download/v0.20.0/yamlfmt_0.20.0_Linux_x86_64.tar.gz
+          tar -xzf yamlfmt_0.20.0_Linux_x86_64.tar.gz
+          chmod +x yamlfmt
+
+      # Run yamlfmt on t.yaml
+      - name: Format t.yaml using yamlfmt
+        run: ./yamlfmt t.yaml
+
